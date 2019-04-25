@@ -15,4 +15,12 @@ public class RentalTest {
 
         assertEquals(movie, rent.getMovie(), "The supplied movie has not been stored.");
     }
+
+    @Test
+    public void testDaysRentedStored() {
+        final Movie movie = new Movie("8 Mile", Movie.REGULAR);
+        final Rental rent = new Rental(movie, 12);
+
+        assertEquals(12, rent.getDaysRented(), "The days of rental have not been stored.");
+    }
 }
