@@ -1,3 +1,5 @@
+package com.gnilkreb.fowler;
+
 class Rental {
     private Movie movie;
     private int daysRented;
