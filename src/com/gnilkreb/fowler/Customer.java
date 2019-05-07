@@ -36,8 +36,9 @@ public class Customer {
             // add frequent renter points
             frequentRenterPoints++;
             // add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == Movie.PriceCode.NewRelease) && each.getDaysRented() > 1)
+            if ((each.getMoviePriceCode() == Movie.PriceCode.NewRelease) && each.getDaysRented() > 1) {
                 frequentRenterPoints++;
+            }
 
             //show figures for this rental
             result.append("\t");
@@ -63,7 +64,7 @@ public class Customer {
 
     private double amountFor(Rental each) {
         double thisAmount = 0;
-        switch (each.getMovie().getPriceCode()) {
+        switch (each.getMoviePriceCode()) {
             case Regular:
                 thisAmount += 2;
                 if (each.getDaysRented() > 2)
