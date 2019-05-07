@@ -21,4 +21,8 @@ public class Rental {
     public Movie.PriceCode getMoviePriceCode() {
         return movie.getPriceCode();
     }
+
+    public double getAmount() {
+        return movie.getPriceCode().getAmount(this.daysRented);
+    }
 }
