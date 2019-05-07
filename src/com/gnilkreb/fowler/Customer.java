@@ -25,8 +25,9 @@ public class Customer {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
 
-        String result = "Rental Record for " + this.getName() + "\n";
-        result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
+        StringBuilder result = new StringBuilder("Rental Record for ");
+        result.append(this.getName());
+        result.append("\n\tTitle\t\tDays\tAmount\n");
 
         for(Rental each : rentals) {
             double thisAmount = 0;
@@ -37,15 +38,27 @@ public class Customer {
             // add bonus for a two day new release rental
             if ((each.getMovie().getPriceCode() == Movie.PriceCode.NewRelease) && each.getDaysRented() > 1)
                 frequentRenterPoints++;
+
             //show figures for this rental
-            result += "\t" + each.getMovie().getTitle() + "\t" + "\t" + each.getDaysRented() + "\t" + String.valueOf(thisAmount) + "\n";
+            result.append("\t");
+            result.append(each.getMovie().getTitle());
+            result.append("\t\t");
+            result.append(each.getDaysRented());
+            result.append("\t");
+            result.append(thisAmount);
+            result.append("\n");
+
             totalAmount += thisAmount;
         }
-        
+
         //add footer lines
-        result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
-        result += "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
-        return result;
+        result.append("Amount owed is ");
+        result.append(totalAmount);
+        result.append("\nYou earned ");
+        result.append(frequentRenterPoints);
+        result.append(" frequent renter points");
+
+        return result.toString();
     }
 
     private double amountFor(Rental each) {
