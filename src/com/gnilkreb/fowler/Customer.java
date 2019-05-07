@@ -4,6 +4,7 @@ import java.lang.*;
 import java.util.*;
 
 public class Customer {
+    
     private String name;
     private Vector rentals = new Vector();
 
@@ -11,19 +12,13 @@ public class Customer {
         name = newname;
     }
 
-    ;
-
     public void addRental(Rental arg) {
         rentals.addElement(arg);
     }
 
-    ;
-
     public String getName() {
         return name;
     }
-
-    ;
 
     public String statement() {
         double totalAmount = 0;
@@ -71,6 +66,5 @@ public class Customer {
         }
         return thisAmount;
     }
-
 }
     
