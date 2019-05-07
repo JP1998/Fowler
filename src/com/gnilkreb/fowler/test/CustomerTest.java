@@ -38,7 +38,7 @@ public class CustomerTest {
     public void testSingleRentalRegularMovie() {
         final Customer customer = new Customer("Marie");
         final Rental rental = new Rental(
-                new Movie("Hello World", Movie.REGULAR),
+                new Movie("Hello World", Movie.PriceCode.Regular),
                 3
         );
         customer.addRental(rental);
@@ -58,7 +58,7 @@ public class CustomerTest {
     public void testSingleRentalChildrenMovie() {
         final Customer customer = new Customer("Marie");
         final Rental rental = new Rental(
-                new Movie("Hello World", Movie.CHILDRENS),
+                new Movie("Hello World", Movie.PriceCode.Children),
                 4
         );
         customer.addRental(rental);
@@ -78,7 +78,7 @@ public class CustomerTest {
     public void testSingleRentalNewReleaseMovie() {
         final Customer customer = new Customer("Marie");
         final Rental rental = new Rental(
-                new Movie("Hello World", Movie.NEW_RELEASE),
+                new Movie("Hello World", Movie.PriceCode.NewRelease),
                 3
         );
         customer.addRental(rental);

@@ -11,7 +11,7 @@ public class RentalTest {
 
     @Test
     public void testMovieStored() {
-        final Movie movie = new Movie("8 Mile", Movie.REGULAR);
+        final Movie movie = new Movie("8 Mile", Movie.PriceCode.Regular);
         final Rental rent = new Rental(movie, 12);
 
         assertEquals(movie, rent.getMovie(), "The supplied movie has not been stored.");
@@ -19,7 +19,7 @@ public class RentalTest {
 
     @Test
     public void testDaysRentedStored() {
-        final Movie movie = new Movie("8 Mile", Movie.REGULAR);
+        final Movie movie = new Movie("8 Mile", Movie.PriceCode.Regular);
         final Rental rent = new Rental(movie, 12);
 
         assertEquals(12, rent.getDaysRented(), "The days of rental have not been stored.");
@@ -39,7 +39,7 @@ public class RentalTest {
         assertThrows(
                 IllegalArgumentException.class,
                 () -> {
-                    final Movie rentedMovie = new Movie("asdf", Movie.REGULAR);
+                    final Movie rentedMovie = new Movie("asdf", Movie.PriceCode.Regular);
                     new Rental(rentedMovie, -1);
                 },
                 "The days rented are not being checked for validity."
